@@ -1,0 +1,21 @@
+{
+  "name": "undangan-digital-vue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi Undangan Digital Modern & Interaktif berbasis Vue 3",
+  "scripts": {
+    "dev": "npx --yes serve . -l 5173",
+    "serve": "npx --yes http-server . -p 5173 -c-1"
+  },
+  "keywords": [
+    "vue",
+    "wedding-invitation",
+    "undangan-digital",
+    "interactive"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}
