@@ -50,8 +50,9 @@
           ></textarea>
         </div>
 
-        <button type="submit" id="btn-submit-rsvp" class="btn-submit-rsvp">
-          💌 Kirim Ucapan &amp; Konfirmasi
+        <button type="submit" id="btn-submit-rsvp" class="btn-submit-rsvp" :disabled="isSubmitting">
+          <span v-if="isSubmitting">⏳ Mengirimkan...</span>
+          <span v-else>💌 Kirim Ucapan &amp; Konfirmasi</span>
         </button>
       </form>
     </div>
@@ -84,17 +85,24 @@
 </template>
 
 <script>
-export default {
+import { 
+  db, 
+  collection, 
+  addDoc, 
+  onSnapshot, 
+  query, 
+  orderBy, 
+  limit, 
+  serverTimestamp 
+} from '../assets/js/firebase.js';
+
+export const RsvpSection = {
   name: 'RsvpSection',
-  props: {
-    guestName: {
-      type: String,
-      default: ''
-    }
-  },
+  props: { guestName: { type: String, default: '' } },
   emits: ['show-toast'],
   data() {
     return {
+      isSubmitting: false,
       form: {
         name: this.guestName || '',
         status: 'hadir',
@@ -104,84 +112,75 @@ export default {
       wishes: []
     };
   },
-  watch: {
-    guestName(val) {
-      if (val && val !== 'Tamu Undangan' && !this.form.name) {
-        this.form.name = val;
-      }
-    }
-  },
   mounted() {
-    this.loadWishes();
+    this.listenToWishes();
   },
   methods: {
-    loadWishes() {
-      const stored = localStorage.getItem('wedding_wishes_vue');
-      if (stored) {
-        try {
-          this.wishes = JSON.parse(stored);
-        } catch (e) {
-          this.wishes = this.getDefaultWishes();
+    // 1. Ambil data secara LIVE dari Firestore
+    listenToWishes() {
+      const q = query(
+        collection(db, 'wishes'), 
+        orderBy('createdAt', 'desc'), 
+        limit(50)
+      );
+      
+      onSnapshot(q, (snapshot) => {
+        this.wishes = snapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            name: data.name,
+            status: data.status,
+            pax: data.pax || '1',
+            message: data.message,
+            date: this.formatTimeAgo(data.createdAt?.toDate())
+          };
+        });
+      }, (error) => {
+        console.error('Firestore Error:', error);
+      });
+    },
+    // 2. Kirim ucapan ke Firestore
+    async handleSubmit() {
+      if (!this.form.name.trim() || !this.form.message.trim() || this.isSubmitting) return;
+      this.isSubmitting = true;
+      try {
+        await addDoc(collection(db, 'wishes'), {
+          name: this.form.name.trim(),
+          status: this.form.status,
+          pax: this.form.status === 'hadir' ? this.form.pax : '0',
+          message: this.form.message.trim(),
+          createdAt: serverTimestamp()
+        });
+        if (window.confetti) {
+          window.confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
         }
-      } else {
-        this.wishes = this.getDefaultWishes();
-        localStorage.setItem('wedding_wishes_vue', JSON.stringify(this.wishes));
+        this.$emit('show-toast', '✓ Terima kasih! Ucapan & konfirmasi Anda berhasil dikirim.');
+        this.form.message = '';
+      } catch (err) {
+        console.error(err);
+        this.$emit('show-toast', '⚠️ Gagal mengirim ucapan, silakan coba lagi.');
+      } finally {
+        this.isSubmitting = false;
       }
     },
-    getDefaultWishes() {
-      return [
-        {
-          name: 'Dimas Aditya',
-          status: 'hadir',
-          message: 'Barakallahu lakum wa baraka alaikum! Selamat menempuh hidup baru Rizky & Amanda, semoga senantiasa sakinah mawaddah warahmah.',
-          date: '1 jam yang lalu'
-        },
-        {
-          name: 'Siti Sarah & Keluarga',
-          status: 'hadir',
-          message: 'Selamat berbahagia Manda dan Mas Rizky! Lancar-lancar sampai hari H ya, insya Allah kami sekeluarga hadir.',
-          date: '3 jam yang lalu'
-        },
-        {
-          name: 'Budi Kurniawan',
-          status: 'ragu',
-          message: 'Selamat Rizky & Amanda! Masih diusahakan jadwal cutinya, semoga bisa hadir merayakan momen bahagia ini.',
-          date: '5 jam yang lalu'
-        }
-      ];
+    formatTimeAgo(date) {
+      if (!date) return 'Baru saja';
+      const seconds = Math.floor((new Date() - date) / 1000);
+      if (seconds < 60) return 'Baru saja';
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return `${minutes} menit lalu`;
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return `${hours} jam lalu`;
+      const days = Math.floor(hours / 24);
+      return `${days} hari lalu`;
     },
     statusLabel(status) {
       if (status === 'hadir') return 'Hadir';
       if (status === 'ragu') return 'Masih Ragu';
       return 'Berhalangan';
-    },
-    handleSubmit() {
-      if (!this.form.name.trim() || !this.form.message.trim()) return;
-
-      const newWish = {
-        name: this.form.name.trim(),
-        status: this.form.status,
-        message: this.form.message.trim(),
-        date: 'Baru saja'
-      };
-
-      this.wishes.unshift(newWish);
-      localStorage.setItem('wedding_wishes_vue', JSON.stringify(this.wishes));
-
-      // Trigger Confetti if canvas-confetti is loaded
-      if (window.confetti) {
-        window.confetti({
-          particleCount: 50,
-          spread: 60,
-          origin: { y: 0.7 }
-        });
-      }
-
-      this.$emit('show-toast', '✓ Terima kasih! Ucapan & konfirmasi Anda berhasil dikirim.');
-
-      // Reset form message
-      this.form.message = '';
     }
-  }
+  },
+  // Template tetap sama, hanya menambahkan :disabled="isSubmitting" pada button submit
 };
 </script>

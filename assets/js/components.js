@@ -1,4 +1,14 @@
 // Vue 3 Modular Components Definition for Browser Execution
+import { 
+  db, 
+  collection, 
+  addDoc, 
+  onSnapshot, 
+  query, 
+  orderBy, 
+  limit, 
+  serverTimestamp 
+} from './firebase.js?v=3.0';
 
 export const CoverModal = {
   name: 'CoverModal',
@@ -427,6 +437,8 @@ export const RsvpSection = {
   emits: ['show-toast'],
   data() {
     return {
+      isSubmitting: false,
+      isLoading: true,
       form: {
         name: this.guestName || '',
         status: 'hadir',
@@ -444,10 +456,46 @@ export const RsvpSection = {
     }
   },
   mounted() {
-    this.loadWishes();
+    this.listenToWishes();
   },
   methods: {
-    loadWishes() {
+    listenToWishes() {
+      try {
+        const q = query(
+          collection(db, 'wishes'), 
+          orderBy('createdAt', 'desc'), 
+          limit(50)
+        );
+
+        onSnapshot(q, (snapshot) => {
+          this.isLoading = false;
+          if (snapshot.empty) {
+            this.wishes = this.getDefaultWishes();
+          } else {
+            this.wishes = snapshot.docs.map(doc => {
+              const data = doc.data();
+              return {
+                id: doc.id,
+                name: data.name || 'Tamu',
+                status: data.status || 'hadir',
+                pax: data.pax || '1',
+                message: data.message || '',
+                date: this.formatTimeAgo(data.createdAt?.toDate())
+              };
+            });
+          }
+        }, (error) => {
+          console.warn('Firestore snapshot warning (fallback to local):', error);
+          this.isLoading = false;
+          this.loadLocalWishes();
+        });
+      } catch (e) {
+        console.warn('Firestore init error:', e);
+        this.isLoading = false;
+        this.loadLocalWishes();
+      }
+    },
+    loadLocalWishes() {
       const stored = localStorage.getItem('wedding_wishes_vue');
       if (stored) {
         try {
@@ -457,7 +505,6 @@ export const RsvpSection = {
         }
       } else {
         this.wishes = this.getDefaultWishes();
-        localStorage.setItem('wedding_wishes_vue', JSON.stringify(this.wishes));
       }
     },
     getDefaultWishes() {
@@ -465,19 +512,19 @@ export const RsvpSection = {
         {
           name: 'Dimas Aditya',
           status: 'hadir',
-          message: 'Barakallahu lakum wa baraka alaikum! Selamat menempuh hidup baru Rizky & Amanda, semoga senantiasa sakinah mawaddah warahmah.',
+          message: 'Barakallahu lakum wa baraka alaikum! Selamat menempuh hidup baru Gunawan & Vista, semoga senantiasa sakinah mawaddah warahmah.',
           date: '1 jam yang lalu'
         },
         {
           name: 'Siti Sarah & Keluarga',
           status: 'hadir',
-          message: 'Selamat berbahagia Manda dan Mas Rizky! Lancar-lancar sampai hari H ya, insya Allah kami sekeluarga hadir.',
+          message: 'Selamat berbahagia Gunawan dan Vista! Lancar-lancar sampai hari H ya, insya Allah kami sekeluarga hadir.',
           date: '3 jam yang lalu'
         },
         {
           name: 'Budi Kurniawan',
           status: 'ragu',
-          message: 'Selamat Rizky & Amanda! Masih diusahakan jadwal cutinya, semoga bisa hadir merayakan momen bahagia ini.',
+          message: 'Selamat Gunawan & Vista! Masih diusahakan jadwal cutinya, semoga bisa hadir merayakan momen bahagia ini.',
           date: '5 jam yang lalu'
         }
       ];
@@ -487,29 +534,55 @@ export const RsvpSection = {
       if (status === 'ragu') return 'Masih Ragu';
       return 'Berhalangan';
     },
-    handleSubmit() {
-      if (!this.form.name.trim() || !this.form.message.trim()) return;
+    formatTimeAgo(date) {
+      if (!date) return 'Baru saja';
+      const seconds = Math.floor((new Date() - date) / 1000);
+      if (seconds < 60) return 'Baru saja';
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return `${minutes} menit yang lalu`;
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return `${hours} jam yang lalu`;
+      const days = Math.floor(hours / 24);
+      return `${days} hari yang lalu`;
+    },
+    async handleSubmit() {
+      if (!this.form.name.trim() || !this.form.message.trim() || this.isSubmitting) return;
 
-      const newWish = {
-        name: this.form.name.trim(),
-        status: this.form.status,
-        message: this.form.message.trim(),
-        date: 'Baru saja'
-      };
-
-      this.wishes.unshift(newWish);
-      localStorage.setItem('wedding_wishes_vue', JSON.stringify(this.wishes));
-
-      if (window.confetti) {
-        window.confetti({
-          particleCount: 50,
-          spread: 60,
-          origin: { y: 0.7 }
+      this.isSubmitting = true;
+      try {
+        await addDoc(collection(db, 'wishes'), {
+          name: this.form.name.trim(),
+          status: this.form.status,
+          pax: this.form.status === 'hadir' ? this.form.pax : '0',
+          message: this.form.message.trim(),
+          createdAt: serverTimestamp()
         });
-      }
 
-      this.$emit('show-toast', '✓ Terima kasih! Ucapan & konfirmasi Anda berhasil dikirim.');
-      this.form.message = '';
+        if (window.confetti) {
+          window.confetti({
+            particleCount: 50,
+            spread: 60,
+            origin: { y: 0.7 }
+          });
+        }
+
+        this.$emit('show-toast', '✓ Terima kasih! Ucapan & konfirmasi Anda berhasil dikirim.');
+        this.form.message = '';
+      } catch (err) {
+        console.error('Submit Firestore error:', err);
+        const newWish = {
+          name: this.form.name.trim(),
+          status: this.form.status,
+          message: this.form.message.trim(),
+          date: 'Baru saja'
+        };
+        this.wishes.unshift(newWish);
+        localStorage.setItem('wedding_wishes_vue', JSON.stringify(this.wishes));
+        this.$emit('show-toast', '✓ Ucapan Anda berhasil dicatat.');
+        this.form.message = '';
+      } finally {
+        this.isSubmitting = false;
+      }
     }
   },
   template: `
@@ -563,8 +636,9 @@ export const RsvpSection = {
             ></textarea>
           </div>
 
-          <button type="submit" id="btn-submit-rsvp" class="btn-submit-rsvp">
-            💌 Kirim Ucapan &amp; Konfirmasi
+          <button type="submit" id="btn-submit-rsvp" class="btn-submit-rsvp" :disabled="isSubmitting">
+            <span v-if="isSubmitting">⏳ Mengirimkan...</span>
+            <span v-else>💌 Kirim Ucapan &amp; Konfirmasi</span>
           </button>
         </form>
       </div>
@@ -572,7 +646,7 @@ export const RsvpSection = {
       <div class="wishes-container">
         <div 
           v-for="(wish, index) in wishes" 
-          :key="index"
+          :key="wish.id || index"
           class="wish-item"
         >
           <div class="wish-header">

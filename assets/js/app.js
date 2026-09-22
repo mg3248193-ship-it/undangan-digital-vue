@@ -9,8 +9,8 @@ import {
   RsvpSection, 
   DigitalGift, 
   FooterSection 
-} from './components.js?v=2.0';
-import { initPetals } from './petals.js?v=2.0';
+} from './components.js?v=3.0';
+import { initPetals } from './petals.js?v=3.0';
 
 const { createApp, ref, onMounted } = window.Vue;
 

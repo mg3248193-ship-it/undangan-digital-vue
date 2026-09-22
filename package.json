@@ -16,6 +16,7 @@
   "author": "Antigravity",
   "license": "MIT",
   "dependencies": {
+    "firebase": "^12.19.0",
     "qrcode": "^1.5.4"
   }
 }

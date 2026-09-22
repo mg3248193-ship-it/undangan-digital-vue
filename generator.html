@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generator Link & Pesan WhatsApp Undangan</title>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Local Vue 3 Runtime with CDN Fallback -->
   <script src="assets/vendor/vue.global.prod.js"></script>
   <script>
@@ -198,7 +201,9 @@
       letter-spacing: 0.5px;
     }
 
-    .form-input, .form-select, .form-textarea {
+    .form-input,
+    .form-select,
+    .form-textarea {
       width: 100%;
       background: rgba(10, 18, 14, 0.7);
       border: 1px solid rgba(197, 160, 89, 0.3);
@@ -211,7 +216,9 @@
       outline: none;
     }
 
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
       border-color: var(--primary-gold);
       box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.25);
       background: rgba(10, 18, 14, 0.95);
@@ -227,6 +234,7 @@
       .grid-2 {
         grid-template-columns: 1fr;
       }
+
       .tabs-nav {
         flex-direction: column;
       }
@@ -306,7 +314,7 @@
       line-height: 1.55;
       white-space: pre-wrap;
       position: relative;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
     .wa-time {
@@ -449,7 +457,7 @@
       border-radius: 30px;
       font-weight: 700;
       font-size: 0.9rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -464,334 +472,496 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Lock Screen Overlay */
+    .lock-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(22, 36, 30, 0.98) 0%, rgba(10, 18, 14, 0.99) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lock-card {
+      background: rgba(28, 44, 37, 0.95);
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      border-radius: 24px;
+      padding: 36px 28px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(197, 160, 89, 0.15);
+      animation: zoomIn 0.3s ease-out;
+    }
+
+    .lock-icon-circle {
+      width: 68px;
+      height: 68px;
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid var(--primary-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--primary-gold);
+      box-shadow: 0 0 20px rgba(197, 160, 89, 0.25);
+    }
+
+    .lock-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .lock-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .pin-input-group {
+      margin-bottom: 20px;
+    }
+
+    .pin-input {
+      width: 100%;
+      text-align: center;
+      letter-spacing: 6px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: rgba(10, 18, 14, 0.85);
+      border: 2px solid rgba(197, 160, 89, 0.3);
+      color: var(--primary-gold);
+      padding: 14px;
+      border-radius: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .pin-input:focus {
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.25);
+    }
+
+    .pin-error-msg {
+      color: #ff6b6b;
+      font-size: 0.82rem;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .shake {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      20%,
+      60% {
+        transform: translateX(-8px);
+      }
+
+      40%,
+      80% {
+        transform: translateX(8px);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
+
 <body>
   <div id="app" class="container">
-    
-    <!-- Top Header -->
-    <header class="gen-header">
-      <div class="top-nav-bar">
-        <a href="index.html" class="back-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
+
+    <!-- Lock Screen Modal Overlay -->
+    <div v-if="!isAuthenticated" class="lock-overlay">
+      <div class="lock-card" :class="{ shake: isShaking }">
+        <div class="lock-icon-circle">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
-          Lihat Undangan Asli
-        </a>
-        <span class="badge-status">● Sistem Siap Pakai</span>
-      </div>
-
-      <h1 class="gen-title">Generator Undangan & WhatsApp</h1>
-      <p class="gen-sub">
-        Buat tautan personalisasi nama tamu dan pesan WhatsApp yang rapi, santun, dan siap kirim ke seluruh undangan.
-      </p>
-    </header>
-
-    <!-- Navigasi Tab -->
-    <nav class="tabs-nav">
-      <button 
-        class="tab-btn" 
-        :class="{ active: currentTab === 'single' }"
-        @click="currentTab = 'single'"
-      >
-        <span>👤 Satu Tamu (Instant)</span>
-      </button>
-
-      <button 
-        class="tab-btn" 
-        :class="{ active: currentTab === 'bulk' }"
-        @click="currentTab = 'bulk'"
-      >
-        <span>📋 Banyak Tamu Sekaligus (Massal)</span>
-      </button>
-
-      <button 
-        class="tab-btn" 
-        :class="{ active: currentTab === 'excel' }"
-        @click="currentTab = 'excel'"
-      >
-        <span>📊 Rumus Excel / Sheets</span>
-      </button>
-    </nav>
-
-    <!-- ================= TAB 1: SATU TAMU ================= -->
-    <section v-if="currentTab === 'single'">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">
-            <span>Data Undangan Tamu</span>
-          </h2>
-          <button class="btn btn-outline btn-sm" @click="loadSampleGuest">
-            Contoh Tamu
-          </button>
         </div>
 
-        <div class="grid-2">
-          <!-- Nama Tamu -->
-          <div class="form-group">
-            <label class="form-label">Nama Tamu / Penerima *</label>
-            <input 
-              v-model="guest.name" 
-              type="text" 
-              class="form-input" 
-              placeholder="Contoh: Bpk. Budi Santoso & Keluarga" 
-              required 
-            />
-          </div>
-
-          <!-- Nomor WhatsApp -->
-          <div class="form-group">
-            <label class="form-label">Nomor WhatsApp (Opsional)</label>
-            <input 
-              v-model="guest.phone" 
-              type="tel" 
-              class="form-input" 
-              placeholder="Contoh: 08123456789 atau 628123456789" 
-            />
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <!-- Sapaan -->
-          <div class="form-group">
-            <label class="form-label">Sebutan / Panggilan</label>
-            <select v-model="guest.salutation" class="form-select">
-              <option value="Bapak/Ibu/Saudara/i">Bapak/Ibu/Saudara/i</option>
-              <option value="Sahabat Tercinta">Sahabat Tercinta</option>
-              <option value="Teman-teman">Teman-teman</option>
-              <option value="Keluarga Besar">Keluarga Besar</option>
-              <option value="Kakak/Abang">Kakak/Abang</option>
-              <option value="Adinda">Adinda</option>
-            </select>
-          </div>
-
-          <!-- Gaya Template Pesan -->
-          <div class="form-group">
-            <label class="form-label">Gaya Bahasa Pesan WA</label>
-            <select v-model="guest.templateStyle" class="form-select">
-              <option value="formal">Sopan & Elegan (Universal)</option>
-              <option value="islami">Bernuansa Islami (Salam & Doa)</option>
-              <option value="casual">Santai & Akrab (Teman/Sahabat)</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Pengaturan Domain/Base URL -->
-        <div class="form-group">
-          <label class="form-label">Base URL Website Undangan</label>
-          <input 
-            v-model="baseUrl" 
-            type="text" 
-            class="form-input" 
-            placeholder="http://localhost:5173/ atau https://domain-anda.com/" 
-          />
-          <small style="color: var(--text-dim); font-size: 0.76rem; margin-top: 4px; display: block;">
-            *Bila website sudah di-hosting online nanti, ganti alamat di atas dengan domain Anda.
-          </small>
-        </div>
-
-        <!-- Box Link Undangan -->
-        <div class="form-group">
-          <label class="form-label">Tautan Undangan Tamu</label>
-          <div class="result-box">
-            <span class="url-text">{{ generatedUrl }}</span>
-            <div style="display: flex; gap: 6px;">
-              <button class="btn btn-outline btn-sm" @click="copyText(generatedUrl, 'Tautan undangan berhasil disalin!')">
-                Salin Link
-              </button>
-              <a :href="generatedUrl" target="_blank" class="btn btn-outline btn-sm">
-                Buka Link ↗
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pratinjau Chat WhatsApp -->
-        <div class="form-group">
-          <label class="form-label">Pratinjau Pesan WhatsApp</label>
-          <div class="wa-preview-container">
-            <div class="wa-preview-header">
-              <div class="wa-avatar">WA</div>
-              <div>
-                <div class="wa-contact-name">{{ guest.name || 'Nama Tamu' }}</div>
-                <div class="wa-contact-status">online</div>
-              </div>
-            </div>
-
-            <div class="wa-bubble">
-              {{ generatedMessage }}
-              <span class="wa-time">10:00 ✔✔</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tombol Aksi -->
-        <div class="btn-group">
-          <button class="btn btn-wa" @click="sendWhatsApp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-            </svg>
-            Kirim ke WhatsApp
-          </button>
-
-          <button class="btn btn-gold" @click="copyText(generatedMessage, 'Pesan WhatsApp lengkap berhasil disalin!')">
-            📋 Salin Pesan WA
-          </button>
-
-          <a :href="generatedUrl" target="_blank" class="btn btn-outline">
-            👁️ Cek Tampilan Cover
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TAB 2: BANYAK TAMU (MASSAL) ================= -->
-    <section v-if="currentTab === 'bulk'">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">
-            <span>Input Daftar Tamu Sekaligus</span>
-          </h2>
-          <button class="btn btn-outline btn-sm" @click="loadBulkSamples">
-            Isi Contoh 5 Nama
-          </button>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">
-            Tempel (Paste) Daftar Nama Tamu di Bawah (1 Nama Per Baris)
-          </label>
-          <textarea 
-            v-model="bulkNamesText" 
-            class="form-textarea" 
-            rows="6" 
-            placeholder="Contoh:&#10;Bpk. Ir. Budi Santoso & Istri&#10;Ibu Hj. Siti Aisyah&#10;Sahabat Andi Pratama&#10;Keluarga Besar Bpk. Hendrawan&#10;Rekan Kantor Divisi IT"
-          ></textarea>
-        </div>
-
-        <div class="grid-2">
-          <div class="form-group">
-            <label class="form-label">Sebutan Default</label>
-            <select v-model="bulkSalutation" class="form-select">
-              <option value="Bapak/Ibu/Saudara/i">Bapak/Ibu/Saudara/i</option>
-              <option value="Sahabat Tercinta">Sahabat Tercinta</option>
-              <option value="Keluarga Besar">Keluarga Besar</option>
-              <option value="Teman-teman">Teman-teman</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Gaya Bahasa</label>
-            <select v-model="bulkStyle" class="form-select">
-              <option value="formal">Sopan & Elegan (Universal)</option>
-              <option value="islami">Bernuansa Islami</option>
-              <option value="casual">Santai & Akrab</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="btn-group" style="margin-top: 10px;">
-          <button class="btn btn-gold" @click="generateBulkList">
-            ⚡ Generate Semua Link Tamu ({{ bulkList.length }})
-          </button>
-          <button v-if="bulkList.length" class="btn btn-outline" @click="exportToCSV">
-            📥 Download File Excel (.CSV)
-          </button>
-          <button v-if="bulkList.length" class="btn btn-outline" @click="copyAllLinks">
-            📋 Salin Semua Link
-          </button>
-        </div>
-
-        <!-- Tabel Hasil Bulk -->
-        <div v-if="bulkList.length" class="bulk-table-wrap">
-          <table class="bulk-table">
-            <thead>
-              <tr>
-                <th width="40">No</th>
-                <th width="220">Nama Tamu</th>
-                <th>Link Undangan</th>
-                <th width="210" style="text-align: center;">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(item, idx) in bulkList" :key="idx">
-                <td>{{ idx + 1 }}</td>
-                <td><strong>{{ item.name }}</strong></td>
-                <td>
-                  <span style="font-family: monospace; font-size: 0.8rem; color: #72e2ae;">
-                    {{ item.url }}
-                  </span>
-                </td>
-                <td>
-                  <div style="display: flex; gap: 6px; justify-content: center;">
-                    <button class="btn btn-outline btn-sm" @click="copyText(item.url, 'Link ' + item.name + ' disalin!')" title="Salin Link">
-                      Link
-                    </button>
-                    <button class="btn btn-gold btn-sm" @click="copyText(item.message, 'Pesan WA untuk ' + item.name + ' disalin!')" title="Salin Pesan WA">
-                      Pesan
-                    </button>
-                    <a :href="item.waLink" target="_blank" class="btn btn-wa btn-sm" title="Kirim WA">
-                      WA ↗
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= TAB 3: PANDUAN EXCEL ================= -->
-    <section v-if="currentTab === 'excel'">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">
-            <span>Panduan Rumus Excel & Google Sheets</span>
-          </h2>
-        </div>
-
-        <p style="color: var(--text-dim); margin-bottom: 20px; line-height: 1.6;">
-          Jika Anda sudah memiliki daftar ratusan nama tamu di Microsoft Excel atau Google Sheets, Anda tidak perlu menginputnya satu per satu. Cukup gunakan rumus otomatis di bawah ini:
+        <h2 class="lock-title">Akses Generator Terkunci</h2>
+        <p class="lock-subtitle">
+          Halaman ini khusus untuk mempelai & keluarga. Masukkan PIN keamanan untuk membuka generator tautan undangan.
         </p>
 
-        <!-- Langkah 1 -->
-        <div class="guide-step">
-          <h4>Langkah 1: Siapkan Kolom Daftar Nama Tamu</h4>
-          <p style="font-size: 0.88rem; color: var(--text-dim);">
-            Pastikan nama-nama tamu berada di <strong>Kolom A</strong> (mulai dari baris <code>A2</code>).
-          </p>
-        </div>
-
-        <!-- Langkah 2 -->
-        <div class="guide-step">
-          <h4>Langkah 2: Rumus Link Undangan Otomatis</h4>
-          <p style="font-size: 0.88rem; color: var(--text-dim);">
-            Di <strong>Kolom B (B2)</strong>, masukkan rumus berikut lalu tekan <code>Enter</code> dan tarik ke bawah:
-          </p>
-          <div class="code-block">
-            ="https://domain-anda.com/?to=" & ENCODEURL(A2)
+        <form @submit.prevent="handleUnlock">
+          <div class="pin-input-group">
+            <input v-model="pinInput" type="password" maxlength="12" class="pin-input" placeholder="••••••"
+              autocomplete="current-password" autofocus />
+            <div v-if="pinError" class="pin-error-msg">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>{{ pinError }}</span>
+            </div>
           </div>
-          <button class="btn btn-outline btn-sm" @click="copyText('=&quot;https://domain-anda.com/?to=&quot; & ENCODEURL(A2)', 'Rumus berhasil disalin!')">
-            📋 Salin Rumus Link
-          </button>
-        </div>
 
-        <!-- Langkah 3 -->
-        <div class="guide-step" style="margin-top: 24px;">
-          <h4>Langkah 3: Rumus Tombol Langsung Kirim WhatsApp dari Excel</h4>
-          <p style="font-size: 0.88rem; color: var(--text-dim);">
-            Jika Anda juga memiliki nomor WhatsApp tamu di <strong>Kolom C (C2)</strong>, di <strong>Kolom D</strong> Anda bisa membuat link klik-kirim WhatsApp:
-          </p>
-          <div class="code-block">
-            ="https://api.whatsapp.com/send?phone=" & C2 & "&text=" & ENCODEURL("Kepada Yth. " & A2 & CHAR(10) & CHAR(10) & "Kami mengundang Anda pada pernikahan kami:" & CHAR(10) & B2)
-          </div>
-          <button class="btn btn-outline btn-sm" @click="copyText('=&quot;https://api.whatsapp.com/send?phone=&quot; & C2 & &quot;&text=&quot; & ENCODEURL(&quot;Kepada Yth. &quot; & A2 & CHAR(10) & CHAR(10) & &quot;Kami mengundang Anda pada pernikahan kami:&quot; & CHAR(10) & B2)', 'Rumus WhatsApp berhasil disalin!')">
-            📋 Salin Rumus WhatsApp
+          <button type="submit" class="btn btn-primary"
+            style="width: 100%; justify-content: center; padding: 14px; font-weight: 700;">
+            🔓 Buka Kunci Generator
           </button>
-        </div>
+        </form>
+
+        <a href="index.html"
+          style="display: inline-block; margin-top: 20px; color: var(--text-dim); font-size: 0.84rem; text-decoration: none;">
+          ← Kembali ke Halaman Utama Undangan
+        </a>
       </div>
-    </section>
+    </div>
+
+    <!-- Main Protected Content (Only Visible When Authenticated) -->
+    <div v-show="isAuthenticated">
+
+      <!-- Top Header -->
+      <header class="gen-header">
+        <div class="top-nav-bar">
+          <a href="index.html" class="back-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Lihat Undangan Asli
+          </a>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="badge-status">● Sistem Siap Pakai</span>
+            <button @click="handleLock" class="btn btn-outline btn-sm"
+              style="padding: 5px 12px; font-size: 0.78rem; border-color: rgba(255,107,107,0.4); color: #ff9999;"
+              title="Kunci kembali halaman ini">
+              🔒 Kunci
+            </button>
+          </div>
+        </div>
+
+        <h1 class="gen-title">Generator Undangan & WhatsApp</h1>
+        <p class="gen-sub">
+          Buat tautan personalisasi nama tamu dan pesan WhatsApp yang rapi, santun, dan siap kirim ke seluruh undangan.
+        </p>
+      </header>
+
+      <!-- Navigasi Tab -->
+      <nav class="tabs-nav">
+        <button class="tab-btn" :class="{ active: currentTab === 'single' }" @click="currentTab = 'single'">
+          <span>👤 Satu Tamu (Instant)</span>
+        </button>
+
+        <button class="tab-btn" :class="{ active: currentTab === 'bulk' }" @click="currentTab = 'bulk'">
+          <span>📋 Banyak Tamu Sekaligus (Massal)</span>
+        </button>
+
+        <button class="tab-btn" :class="{ active: currentTab === 'excel' }" @click="currentTab = 'excel'">
+          <span>📊 Rumus Excel / Sheets</span>
+        </button>
+      </nav>
+
+      <!-- ================= TAB 1: SATU TAMU ================= -->
+      <section v-if="currentTab === 'single'">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span>Data Undangan Tamu</span>
+            </h2>
+            <button class="btn btn-outline btn-sm" @click="loadSampleGuest">
+              Contoh Tamu
+            </button>
+          </div>
+
+          <div class="grid-2">
+            <!-- Nama Tamu -->
+            <div class="form-group">
+              <label class="form-label">Nama Tamu / Penerima *</label>
+              <input v-model="guest.name" type="text" class="form-input"
+                placeholder="Contoh: Bpk. Budi Santoso & Keluarga" required />
+            </div>
+
+            <!-- Nomor WhatsApp -->
+            <div class="form-group">
+              <label class="form-label">Nomor WhatsApp (Opsional)</label>
+              <input v-model="guest.phone" type="tel" class="form-input"
+                placeholder="Contoh: 08123456789 atau 628123456789" />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Sapaan -->
+            <div class="form-group">
+              <label class="form-label">Sebutan / Panggilan</label>
+              <select v-model="guest.salutation" class="form-select">
+                <option value="Bapak/Ibu/Saudara/i">Bapak/Ibu/Saudara/i</option>
+                <option value="Sahabat Tercinta">Sahabat Tercinta</option>
+                <option value="Teman-teman">Teman-teman</option>
+                <option value="Keluarga Besar">Keluarga Besar</option>
+                <option value="Kakak/Abang">Kakak/Abang</option>
+                <option value="Adinda">Adinda</option>
+              </select>
+            </div>
+
+            <!-- Gaya Template Pesan -->
+            <div class="form-group">
+              <label class="form-label">Gaya Bahasa Pesan WA</label>
+              <select v-model="guest.templateStyle" class="form-select">
+                <option value="formal">Sopan & Elegan (Universal)</option>
+                <option value="islami">Bernuansa Islami (Salam & Doa)</option>
+                <option value="casual">Santai & Akrab (Teman/Sahabat)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pengaturan Domain/Base URL -->
+          <div class="form-group">
+            <label class="form-label">Base URL Website Undangan</label>
+            <input v-model="baseUrl" type="text" class="form-input"
+              placeholder="http://localhost:5173/ atau https://domain-anda.com/" />
+            <small style="color: var(--text-dim); font-size: 0.76rem; margin-top: 4px; display: block;">
+              *Bila website sudah di-hosting online nanti, ganti alamat di atas dengan domain Anda.
+            </small>
+          </div>
+
+          <!-- Box Link Undangan -->
+          <div class="form-group">
+            <label class="form-label">Tautan Undangan Tamu</label>
+            <div class="result-box">
+              <span class="url-text">{{ generatedUrl }}</span>
+              <div style="display: flex; gap: 6px;">
+                <button class="btn btn-outline btn-sm"
+                  @click="copyText(generatedUrl, 'Tautan undangan berhasil disalin!')">
+                  Salin Link
+                </button>
+                <a :href="generatedUrl" target="_blank" class="btn btn-outline btn-sm">
+                  Buka Link ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pratinjau Chat WhatsApp -->
+          <div class="form-group">
+            <label class="form-label">Pratinjau Pesan WhatsApp</label>
+            <div class="wa-preview-container">
+              <div class="wa-preview-header">
+                <div class="wa-avatar">WA</div>
+                <div>
+                  <div class="wa-contact-name">{{ guest.name || 'Nama Tamu' }}</div>
+                  <div class="wa-contact-status">online</div>
+                </div>
+              </div>
+
+              <div class="wa-bubble">
+                {{ generatedMessage }}
+                <span class="wa-time">10:00 ✔✔</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol Aksi -->
+          <div class="btn-group">
+            <button class="btn btn-wa" @click="sendWhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+              </svg>
+              Kirim ke WhatsApp
+            </button>
+
+            <button class="btn btn-gold"
+              @click="copyText(generatedMessage, 'Pesan WhatsApp lengkap berhasil disalin!')">
+              📋 Salin Pesan WA
+            </button>
+
+            <a :href="generatedUrl" target="_blank" class="btn btn-outline">
+              👁️ Cek Tampilan Cover
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: BANYAK TAMU (MASSAL) ================= -->
+      <section v-if="currentTab === 'bulk'">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span>Input Daftar Tamu Sekaligus</span>
+            </h2>
+            <button class="btn btn-outline btn-sm" @click="loadBulkSamples">
+              Isi Contoh 5 Nama
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              Tempel (Paste) Daftar Nama Tamu di Bawah (1 Nama Per Baris)
+            </label>
+            <textarea v-model="bulkNamesText" class="form-textarea" rows="6"
+              placeholder="Contoh:&#10;Bpk. Ir. Budi Santoso & Istri&#10;Ibu Hj. Siti Aisyah&#10;Sahabat Andi Pratama&#10;Keluarga Besar Bpk. Hendrawan&#10;Rekan Kantor Divisi IT"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label class="form-label">Sebutan Default</label>
+              <select v-model="bulkSalutation" class="form-select">
+                <option value="Bapak/Ibu/Saudara/i">Bapak/Ibu/Saudara/i</option>
+                <option value="Sahabat Tercinta">Sahabat Tercinta</option>
+                <option value="Keluarga Besar">Keluarga Besar</option>
+                <option value="Teman-teman">Teman-teman</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Gaya Bahasa</label>
+              <select v-model="bulkStyle" class="form-select">
+                <option value="formal">Sopan & Elegan (Universal)</option>
+                <option value="islami">Bernuansa Islami</option>
+                <option value="casual">Santai & Akrab</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="btn-group" style="margin-top: 10px;">
+            <button class="btn btn-gold" @click="generateBulkList">
+              ⚡ Generate Semua Link Tamu ({{ bulkList.length }})
+            </button>
+            <button v-if="bulkList.length" class="btn btn-outline" @click="exportToCSV">
+              📥 Download File Excel (.CSV)
+            </button>
+            <button v-if="bulkList.length" class="btn btn-outline" @click="copyAllLinks">
+              📋 Salin Semua Link
+            </button>
+          </div>
+
+          <!-- Tabel Hasil Bulk -->
+          <div v-if="bulkList.length" class="bulk-table-wrap">
+            <table class="bulk-table">
+              <thead>
+                <tr>
+                  <th width="40">No</th>
+                  <th width="220">Nama Tamu</th>
+                  <th>Link Undangan</th>
+                  <th width="210" style="text-align: center;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, idx) in bulkList" :key="idx">
+                  <td>{{ idx + 1 }}</td>
+                  <td><strong>{{ item.name }}</strong></td>
+                  <td>
+                    <span style="font-family: monospace; font-size: 0.8rem; color: #72e2ae;">
+                      {{ item.url }}
+                    </span>
+                  </td>
+                  <td>
+                    <div style="display: flex; gap: 6px; justify-content: center;">
+                      <button class="btn btn-outline btn-sm"
+                        @click="copyText(item.url, 'Link ' + item.name + ' disalin!')" title="Salin Link">
+                        Link
+                      </button>
+                      <button class="btn btn-gold btn-sm"
+                        @click="copyText(item.message, 'Pesan WA untuk ' + item.name + ' disalin!')"
+                        title="Salin Pesan WA">
+                        Pesan
+                      </button>
+                      <a :href="item.waLink" target="_blank" class="btn btn-wa btn-sm" title="Kirim WA">
+                        WA ↗
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 3: PANDUAN EXCEL ================= -->
+      <section v-if="currentTab === 'excel'">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <span>Panduan Rumus Excel & Google Sheets</span>
+            </h2>
+          </div>
+
+          <p style="color: var(--text-dim); margin-bottom: 20px; line-height: 1.6;">
+            Jika Anda sudah memiliki daftar ratusan nama tamu di Microsoft Excel atau Google Sheets, Anda tidak perlu
+            menginputnya satu per satu. Cukup gunakan rumus otomatis di bawah ini:
+          </p>
+
+          <!-- Langkah 1 -->
+          <div class="guide-step">
+            <h4>Langkah 1: Siapkan Kolom Daftar Nama Tamu</h4>
+            <p style="font-size: 0.88rem; color: var(--text-dim);">
+              Pastikan nama-nama tamu berada di <strong>Kolom A</strong> (mulai dari baris <code>A2</code>).
+            </p>
+          </div>
+
+          <!-- Langkah 2 -->
+          <div class="guide-step">
+            <h4>Langkah 2: Rumus Link Undangan Otomatis</h4>
+            <p style="font-size: 0.88rem; color: var(--text-dim);">
+              Di <strong>Kolom B (B2)</strong>, masukkan rumus berikut lalu tekan <code>Enter</code> dan tarik ke bawah:
+            </p>
+            <div class="code-block">
+              ="https://domain-anda.com/?to=" & ENCODEURL(A2)
+            </div>
+            <button class="btn btn-outline btn-sm"
+              @click="copyText('=&quot;https://domain-anda.com/?to=&quot; & ENCODEURL(A2)', 'Rumus berhasil disalin!')">
+              📋 Salin Rumus Link
+            </button>
+          </div>
+
+          <!-- Langkah 3 -->
+          <div class="guide-step" style="margin-top: 24px;">
+            <h4>Langkah 3: Rumus Tombol Langsung Kirim WhatsApp dari Excel</h4>
+            <p style="font-size: 0.88rem; color: var(--text-dim);">
+              Jika Anda juga memiliki nomor WhatsApp tamu di <strong>Kolom C (C2)</strong>, di <strong>Kolom D</strong>
+              Anda bisa membuat link klik-kirim WhatsApp:
+            </p>
+            <div class="code-block">
+              ="https://api.whatsapp.com/send?phone=" & C2 & "&text=" & ENCODEURL("Kepada Yth. " & A2 & CHAR(10) &
+              CHAR(10) & "Kami mengundang Anda pada pernikahan kami:" & CHAR(10) & B2)
+            </div>
+            <button class="btn btn-outline btn-sm"
+              @click="copyText('=&quot;https://api.whatsapp.com/send?phone=&quot; & C2 & &quot;&text=&quot; & ENCODEURL(&quot;Kepada Yth. &quot; & A2 & CHAR(10) & CHAR(10) & &quot;Kami mengundang Anda pada pernikahan kami:&quot; & CHAR(10) & B2)', 'Rumus WhatsApp berhasil disalin!')">
+              📋 Salin Rumus WhatsApp
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- Toast Notification -->
     <div class="toast" :class="{ show: toast.visible }">
@@ -808,8 +978,58 @@
 
     createApp({
       setup() {
+        // ================= SECURITY PIN =================
+        // PIN default: 011126 (Tanggal pernikahan 1 Nov 2026), bisa Anda ganti di sini
+        const MASTER_PIN = '011126';
+        const isAuthenticated = ref(false);
+        const pinInput = ref('');
+        const pinError = ref('');
+        const isShaking = ref(false);
+
+        const checkAuth = () => {
+          const auth = sessionStorage.getItem('gunawan_vista_gen_auth');
+          if (auth === 'true') {
+            isAuthenticated.value = true;
+          }
+        };
+
+        const handleUnlock = () => {
+          if (!pinInput.value) {
+            pinError.value = 'Silakan masukkan PIN keamanan.';
+            triggerShake();
+            return;
+          }
+
+          if (pinInput.value.trim() === MASTER_PIN) {
+            sessionStorage.setItem('gunawan_vista_gen_auth', 'true');
+            isAuthenticated.value = true;
+            pinError.value = '';
+            pinInput.value = '';
+            showToast('✓ Akses generator berhasil dibuka!');
+          } else {
+            pinError.value = 'PIN keamanan salah! Silakan coba lagi.';
+            pinInput.value = '';
+            triggerShake();
+          }
+        };
+
+        const handleLock = () => {
+          sessionStorage.removeItem('gunawan_vista_gen_auth');
+          isAuthenticated.value = false;
+          pinInput.value = '';
+          pinError.value = '';
+          showToast('Generator berhasil dikunci kembali.');
+        };
+
+        const triggerShake = () => {
+          isShaking.value = true;
+          setTimeout(() => {
+            isShaking.value = false;
+          }, 400);
+        };
+
         const currentTab = ref('single');
-        
+
         // Base URL otomatis mendeteksi path lokal/domain saat ini
         const baseUrl = ref('');
 
@@ -1049,6 +1269,7 @@ Hormat kami,
         };
 
         onMounted(() => {
+          checkAuth();
           if (window.location.protocol === 'file:') {
             const cleanHref = window.location.href.replace(/generator\.html.*$/i, '');
             baseUrl.value = cleanHref;
@@ -1060,6 +1281,12 @@ Hormat kami,
         });
 
         return {
+          isAuthenticated,
+          pinInput,
+          pinError,
+          isShaking,
+          handleUnlock,
+          handleLock,
           currentTab,
           baseUrl,
           guest,
@@ -1082,4 +1309,5 @@ Hormat kami,
     }).mount('#app');
   </script>
 </body>
+
 </html>
