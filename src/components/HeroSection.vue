@@ -7,7 +7,7 @@
     <div class="hero-arch-container">
       <div class="hero-arch-glow"></div>
       <div class="hero-arch-image">
-        <img src="assets/images/hero.jpg" alt="Gunawan & Vista" />
+        <img src="assets/images/Gunavista-2.png" alt="Vista & Gunawan" />
       </div>
     </div>
 

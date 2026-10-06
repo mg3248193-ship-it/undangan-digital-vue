@@ -153,7 +153,7 @@ const App = {
         <HeroSection />
         <CoupleSection />
         <EventSchedule />
-        <GallerySection />
+        <!-- <GallerySection /> -->
         <RsvpSection :guest-name="guestName" @show-toast="showToast" />
         <DigitalGift @show-toast="showToast" />
         <FooterSection />

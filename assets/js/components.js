@@ -1,13 +1,13 @@
 // Vue 3 Modular Components Definition for Browser Execution
-import { 
-  db, 
-  collection, 
-  addDoc, 
-  onSnapshot, 
-  query, 
-  orderBy, 
-  limit, 
-  serverTimestamp 
+import {
+  db,
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  limit,
+  serverTimestamp
 } from './firebase.js?v=3.0';
 
 export const CoverModal = {
@@ -82,12 +82,12 @@ export const CoverModal = {
 
         <div class="cover-header">
           <span class="cover-sub">The Wedding Of</span>
-          <h1 class="cover-monogram">G & V</h1>
-          <h2 class="cover-couple-names">Gunawan &amp; Vista</h2>
+          <h1 class="cover-monogram">V & G</h1>
+          <h2 class="cover-couple-names">Vista &amp; Gunawan</h2>
         </div>
 
         <div class="cover-photo-frame">
-          <img src="assets/images/hero.jpg" alt="Gunawan & Vista" />
+          <img src="assets/images/Gunavista-2.png" alt="Vista & Gunawan" />
         </div>
 
         <div class="cover-guest-box">
@@ -154,8 +154,8 @@ export const HeroSection = {
   },
   computed: {
     calendarLink() {
-      const title = encodeURIComponent('Pernikahan Gunawan & Vista');
-      const details = encodeURIComponent('Akad Nikah & Resepsi Pernikahan Muhammad Gunawan & Vista Agustiningsih');
+      const title = encodeURIComponent('Pernikahan Vista & Gunawan');
+      const details = encodeURIComponent('Akad Nikah & Resepsi Pernikahan Vista Agustiningsih &Muhammad Gunawan');
       const location = encodeURIComponent('Citeureup, Jl. Mayor Oking, Bogor');
       return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261101T010000Z/20261101T110000Z&details=${details}&location=${location}`;
     }
@@ -196,12 +196,12 @@ export const HeroSection = {
       <div class="hero-arch-container">
         <div class="hero-arch-glow"></div>
         <div class="hero-arch-image">
-          <img src="assets/images/hero.jpg" alt="Gunawan & Vista" />
+          <img src="assets/images/Gunavista-2.png" alt="Vista & Gunawan" />
         </div>
       </div>
 
       <h2 class="font-script" style="font-size: 3rem; color: var(--sage-deep); margin-bottom: 6px;">
-        Gunawan &amp; Vista
+        Vista &amp; Gunawan
       </h2>
       <p style="font-size: 0.95rem; font-weight: 600; color: var(--primary-gold); letter-spacing: 2px;">
         MINGGU, 1 NOVEMBER 2026
@@ -270,7 +270,7 @@ export const CoupleSection = {
 
       <div class="couple-card">
         <div class="couple-avatar">
-          <img src="assets/images/groom.jpg" alt="Muhammad Gunawan" />
+          <img src="assets/images/Gunavista-4.png" alt="Muhammad Gunawan" />
         </div>
         <h3 class="couple-name">Muhammad Gunawan</h3>
         <p class="couple-desc">
@@ -290,7 +290,7 @@ export const CoupleSection = {
 
       <div class="couple-card">
         <div class="couple-avatar">
-          <img src="assets/images/bride.jpg" alt="Vista Agustiningsih" />
+          <img src="assets/images/Gunavista-3.png" alt="Vista Agustiningsih" />
         </div>
         <h3 class="couple-name">Vista Agustiningsih</h3>
         <p class="couple-desc">
@@ -462,8 +462,8 @@ export const RsvpSection = {
     listenToWishes() {
       try {
         const q = query(
-          collection(db, 'wishes'), 
-          orderBy('createdAt', 'desc'), 
+          collection(db, 'wishes'),
+          orderBy('createdAt', 'desc'),
           limit(50)
         );
 

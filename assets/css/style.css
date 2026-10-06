@@ -200,7 +200,7 @@ body {
   padding: 50px 30px 40px;
   text-align: center;
   background: linear-gradient(180deg, rgba(82, 33, 49, 0.88) 0%, rgba(46, 17, 27, 0.94) 100%),
-    url('../images/hero.jpg') center/cover no-repeat;
+    url('../images/Gunavista-7.jpeg') center/cover no-repeat;
   color: #ffffff;
   overflow: hidden;
 }
@@ -834,15 +834,16 @@ body {
    7. RSVP & GUESTBOOK SECTION
    ========================================================================== */
 .rsvp-section {
-  background-color: var(--sage-light);
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+  position: relative;
 }
 
 .rsvp-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: var(--radius-lg);
   padding: 28px 20px;
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(197, 160, 89, 0.25);
+  border: 1px solid rgba(232, 158, 184, 0.45);
   margin-bottom: 30px;
   text-align: left;
 }
@@ -865,10 +866,10 @@ body {
   width: 100%;
   padding: 12px 14px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--cream-border);
+  border: 1px solid #f3cfdb;
   font-family: inherit;
   font-size: 0.9rem;
-  background-color: #faf7f2;
+  background-color: #fff5f8;
   color: var(--text-dark);
   outline: none;
   transition: border-color 0.2s, background-color 0.2s;
@@ -927,11 +928,11 @@ body {
 }
 
 .wish-item {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
   padding: 16px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  border: 1px solid var(--cream-border);
+  border: 1px solid #f3cfdb;
 }
 
 .wish-header {
@@ -985,7 +986,8 @@ body {
    8. DIGITAL GIFT SECTION
    ========================================================================== */
 .gift-section {
-  background-color: var(--cream-surface);
+  background-color: var(--sage-light);
+  position: relative;
 }
 
 .gift-tabs {
@@ -1082,12 +1084,13 @@ body {
 }
 
 .physical-gift-card {
-  background: #faf7f2;
+  background: #ffffff;
   border: 1px dashed var(--primary-gold);
   border-radius: var(--radius-lg);
   padding: 24px;
   text-align: center;
   margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 /* ==========================================================================

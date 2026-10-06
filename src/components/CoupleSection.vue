@@ -10,7 +10,7 @@
     <!-- Mempelai Pria -->
     <div class="couple-card">
       <div class="couple-avatar">
-        <img src="assets/images/groom.jpg" alt="Rizky Pratama" />
+        <img src="assets/images/Gunavista-4.png" alt="Muhammad Gunawan" />
       </div>
       <h3 class="couple-name">Muhammad Gunawan</h3>
       <p class="couple-desc">
@@ -32,7 +32,7 @@
     <!-- Mempelai Wanita -->
     <div class="couple-card">
       <div class="couple-avatar">
-        <img src="assets/images/bride.jpg" alt="Amanda Putri Kirana" />
+        <img src="assets/images/Gunavista-3.png" alt="Vista Agustiningsih" />
       </div>
       <h3 class="couple-name">Vista Agustiningsih</h3>
       <p class="couple-desc">

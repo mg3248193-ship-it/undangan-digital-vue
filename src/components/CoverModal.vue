@@ -12,7 +12,7 @@
 
       <!-- Photo Frame -->
       <div class="cover-photo-frame">
-        <img src="assets/images/hero.jpg" alt="Gunawan & Vista" />
+        <img src="assets/images/Gunavista-2.png" alt="Gunawan & Vista" />
       </div>
 
       <!-- Guest Personalization Box -->
