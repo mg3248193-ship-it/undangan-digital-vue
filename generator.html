@@ -383,6 +383,257 @@
       border-color: var(--primary-gold);
     }
 
+    .btn-ig {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #ffffff;
+      flex: 1.2;
+    }
+
+    .btn-ig:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(220, 39, 67, 0.4);
+    }
+
+    .btn-fb {
+      background: #1877f2;
+      color: #ffffff;
+      flex: 1.1;
+    }
+
+    .btn-fb:hover {
+      background: #166fe5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(24, 119, 242, 0.4);
+    }
+
+    .btn-share {
+      background: #3b82f6;
+      color: #ffffff;
+      flex: 1.2;
+    }
+
+    .btn-share:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-xs {
+      padding: 5px 12px;
+      font-size: 0.76rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      font-weight: 600;
+    }
+
+    .btn-gold-sm {
+      background: var(--gold-gradient);
+      color: #0b141a;
+      transition: all 0.2s ease;
+    }
+
+    .btn-gold-sm:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+    }
+
+    .btn-outline-sm {
+      background: transparent;
+      border: 1px solid var(--sage-border);
+      color: var(--gold-light);
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline-sm:hover {
+      background: rgba(197, 160, 89, 0.12);
+      border-color: var(--primary-gold);
+    }
+
+    /* Warning Localhost Alert */
+    .alert-local-warning {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .alert-local-warning .alert-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .alert-local-warning strong {
+      color: #f87171;
+      font-size: 0.88rem;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .alert-local-warning p {
+      color: #fca5a5;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Platform Preview Tabs */
+    .platform-tabs {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 3px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .platform-tab-btn {
+      padding: 5px 14px;
+      border-radius: 16px;
+      font-size: 0.76rem;
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .platform-tab-btn.active {
+      background: var(--gold-gradient);
+      color: #0b141a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Instagram DM Mockup */
+    .ig-preview-container {
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+
+    .ig-preview-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ig-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 0.85rem;
+    }
+
+    .ig-contact-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .ig-contact-status {
+      font-size: 0.75rem;
+      color: #a8a8a8;
+    }
+
+    .ig-bubble {
+      background: #262626;
+      color: #f5f5f5;
+      border-radius: 18px 18px 4px 18px;
+      padding: 14px 16px;
+      max-width: 90%;
+      margin-left: auto;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .ig-card-preview {
+      background: #1e1e1e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 14px;
+      max-width: 90%;
+      margin: 8px 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ig-card-thumb {
+      width: 42px;
+      height: 42px;
+      background: rgba(197, 160, 89, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .ig-card-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ig-card-url {
+      font-size: 0.72rem;
+      color: #38bdf8;
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    /* Edukasi Box IG Tips */
+    .ig-tips-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: rgba(197, 160, 89, 0.08);
+      border: 1px dashed var(--primary-gold);
+      border-radius: 12px;
+    }
+
+    .ig-tips-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .ig-tips-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .ig-tips-list strong {
+      color: #e2e8f0;
+    }
+
+    .ig-tips-list code {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #72e2ae;
+    }
+
     .btn-sm {
       padding: 8px 14px;
       font-size: 0.82rem;
@@ -747,20 +998,40 @@
             <label class="form-label">Base URL Website Undangan</label>
             <input v-model="baseUrl" type="text" class="form-input"
               placeholder="http://localhost:5173/ atau https://domain-anda.com/" />
-            <small style="color: var(--text-dim); font-size: 0.76rem; margin-top: 4px; display: block;">
-              *Bila website sudah di-hosting online nanti, ganti alamat di atas dengan domain Anda.
+            
+            <!-- Peringatan Jika Menggunakan Localhost -->
+            <div v-if="isLocalUrl" class="alert-local-warning">
+              <div class="alert-icon">⚠️</div>
+              <div>
+                <strong>Penting: Anda Sedang Menggunakan URL Lokal (localhost / file)</strong>
+                <p>
+                  Link <code>localhost</code> hanya bisa dibuka di komputer/laptop Anda dan <u>TIDAK BISA DIBUKA</u> di HP tamu saat dikirim via Instagram, Facebook, atau WhatsApp (link akan mati / error tidak bisa diakses).
+                </p>
+                <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button type="button" class="btn-xs btn-gold-sm" @click="setGitHubPagesUrl">
+                    🌐 Terapkan Domain GitHub Pages
+                  </button>
+                  <button type="button" class="btn-xs btn-outline-sm" @click="setCustomDomain">
+                    ✏️ Masukkan Domain Lain
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <small v-else style="color: #72e2ae; font-size: 0.76rem; margin-top: 6px; display: block;">
+              ✓ Domain online aktif! Tautan siap dikirim dan dapat dibuka di semua HP & sosmed.
             </small>
           </div>
 
           <!-- Box Link Undangan -->
           <div class="form-group">
-            <label class="form-label">Tautan Undangan Tamu</label>
+            <label class="form-label">Tautan Undangan Tamu (Khusus {{ guest.name || 'Tamu' }})</label>
             <div class="result-box">
               <span class="url-text">{{ generatedUrl }}</span>
-              <div style="display: flex; gap: 6px;">
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
                 <button class="btn btn-outline btn-sm"
-                  @click="copyText(generatedUrl, 'Tautan undangan berhasil disalin!')">
-                  Salin Link
+                  @click="copyText(generatedUrl, '✓ Tautan undangan berhasil disalin!')">
+                  📋 Salin Link
                 </button>
                 <a :href="generatedUrl" target="_blank" class="btn btn-outline btn-sm">
                   Buka Link ↗
@@ -769,10 +1040,34 @@
             </div>
           </div>
 
-          <!-- Pratinjau Chat WhatsApp -->
+          <!-- Pratinjau Pesan Undangan (WA & IG/FB) -->
           <div class="form-group">
-            <label class="form-label">Pratinjau Pesan WhatsApp</label>
-            <div class="wa-preview-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+              <label class="form-label" style="margin-bottom: 0;">Pratinjau Pesan Undangan</label>
+              
+              <!-- Tab Pilihan Pratinjau Platform -->
+              <div class="platform-tabs">
+                <button 
+                  type="button" 
+                  class="platform-tab-btn" 
+                  :class="{ active: previewPlatform === 'wa' }"
+                  @click="previewPlatform = 'wa'"
+                >
+                  🟢 WhatsApp
+                </button>
+                <button 
+                  type="button" 
+                  class="platform-tab-btn" 
+                  :class="{ active: previewPlatform === 'ig' }"
+                  @click="previewPlatform = 'ig'"
+                >
+                  📸 Instagram &amp; FB
+                </button>
+              </div>
+            </div>
+
+            <!-- WhatsApp Mockup -->
+            <div v-if="previewPlatform === 'wa'" class="wa-preview-container">
               <div class="wa-preview-header">
                 <div class="wa-avatar">WA</div>
                 <div>
@@ -780,32 +1075,107 @@
                   <div class="wa-contact-status">online</div>
                 </div>
               </div>
-
               <div class="wa-bubble">
                 {{ generatedMessage }}
                 <span class="wa-time">10:00 ✔✔</span>
               </div>
             </div>
+
+            <!-- Instagram / Facebook Mockup -->
+            <div v-else class="ig-preview-container">
+              <div class="ig-preview-header">
+                <div class="ig-avatar">IG</div>
+                <div>
+                  <div class="ig-contact-name">{{ guest.name || 'Nama Tamu' }}</div>
+                  <div class="ig-contact-status">Direct Message (Teks Bersih &amp; Rapi)</div>
+                </div>
+              </div>
+              <div class="ig-bubble">
+                {{ generatedSocialMessage }}
+              </div>
+              <div class="ig-card-preview">
+                <div class="ig-card-thumb">💍</div>
+                <div class="ig-card-info">
+                  <div class="ig-card-title">The Wedding of Gunawan &amp; Vista</div>
+                  <div class="ig-card-url">{{ generatedUrl }}</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Tombol Aksi -->
-          <div class="btn-group">
-            <button class="btn btn-wa" @click="sendWhatsApp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-              </svg>
-              Kirim ke WhatsApp
-            </button>
+          <!-- Tombol Aksi Kirim & Bagikan Lengkap -->
+          <div style="margin-top: 24px;">
+            <div style="font-size: 0.84rem; font-weight: 700; color: var(--gold-light); margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+              <span>🚀 Pilih Cara Mengirim / Membagikan Undangan:</span>
+            </div>
 
-            <button class="btn btn-gold"
-              @click="copyText(generatedMessage, 'Pesan WhatsApp lengkap berhasil disalin!')">
-              📋 Salin Pesan WA
-            </button>
+            <div class="btn-group">
+              <!-- Kirim WhatsApp -->
+              <button class="btn btn-wa" @click="sendWhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                <span>Kirim ke WhatsApp</span>
+              </button>
 
-            <a :href="generatedUrl" target="_blank" class="btn btn-outline">
-              👁️ Cek Tampilan Cover
-            </a>
+              <!-- Kirim ke Instagram -->
+              <button class="btn btn-ig" @click="sendInstagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Kirim ke Instagram</span>
+              </button>
+
+              <!-- Bagikan ke Facebook -->
+              <button class="btn btn-fb" @click="sendFacebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Bagikan FB</span>
+              </button>
+
+              <!-- Bagikan Universal (Native Share) -->
+              <button class="btn btn-share" @click="sendNativeShare">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>Bagikan (Semua Sosmed)</span>
+              </button>
+            </div>
+
+            <!-- Tombol Salin Cepat -->
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+              <button class="btn btn-gold btn-sm"
+                @click="copyText(generatedMessage, '✓ Pesan WhatsApp lengkap berhasil disalin!')">
+                📋 Salin Pesan WA
+              </button>
+              <button class="btn btn-outline btn-sm"
+                @click="copyText(generatedSocialMessage, '✓ Pesan bersih khusus IG / FB berhasil disalin!')">
+                📋 Salin Pesan IG / FB
+              </button>
+              <button class="btn btn-outline btn-sm"
+                @click="copyCleanLink"
+                style="border-color: #38bdf8; color: #7dd3fc;">
+                🔗 Salin Link Saja (Paling Aman di IG)
+              </button>
+              <a :href="generatedUrl" target="_blank" class="btn btn-outline btn-sm">
+                👁️ Cek Cover ↗
+              </a>
+            </div>
+
+            <!-- Edukasi / Solusi Link Mati di Instagram -->
+            <div class="ig-tips-box">
+              <div class="ig-tips-title">💡 Mengapa Link Sering "Mati" / Tidak Bisa Diklik di Instagram DM?</div>
+              <ul class="ig-tips-list">
+                <li><strong>1. Menggunakan Link Localhost:</strong> Jika Base URL masih <code>localhost:5173</code>, link hanya bisa dibuka di laptop Anda sendiri. Gunakan tombol <em>"Terapkan Domain GitHub Pages"</em> di atas agar link bisa dibuka di seluruh dunia.</li>
+                <li><strong>2. Tanda Bintang (*) WhatsApp:</strong> Instagram DM tidak mengenali format bintang (<code>*</code>) WhatsApp dan kadang mengira teks adalah spam. Tombol <em>"Kirim ke Instagram"</em> kami sudah otomatis membersihkan teks agar rapi.</li>
+                <li><strong>3. Trik Terbaik di IG DM:</strong> Kirim teks pengantar undangan terlebih dahulu, kemudian kirim <strong>Link Saja</strong> secara terpisah di pesan berikutnya. Instagram akan otomatis memunculkan <em>kartu preview</em> undangan yang 100% bisa langsung disentuh/diklik tamu!</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -871,7 +1241,7 @@
                   <th width="40">No</th>
                   <th width="220">Nama Tamu</th>
                   <th>Link Undangan</th>
-                  <th width="210" style="text-align: center;">Aksi</th>
+                  <th width="260" style="text-align: center;">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -884,17 +1254,25 @@
                     </span>
                   </td>
                   <td>
-                    <div style="display: flex; gap: 6px; justify-content: center;">
+                    <div style="display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;">
                       <button class="btn btn-outline btn-sm"
-                        @click="copyText(item.url, 'Link ' + item.name + ' disalin!')" title="Salin Link">
+                        @click="copyText(item.url, '✓ Link ' + item.name + ' disalin!')" title="Salin Link Saja">
                         Link
                       </button>
                       <button class="btn btn-gold btn-sm"
-                        @click="copyText(item.message, 'Pesan WA untuk ' + item.name + ' disalin!')"
+                        @click="copyText(item.message, '✓ Pesan WA untuk ' + item.name + ' disalin!')"
                         title="Salin Pesan WA">
-                        Pesan
+                        WA
                       </button>
-                      <a :href="item.waLink" target="_blank" class="btn btn-wa btn-sm" title="Kirim WA">
+                      <button class="btn btn-ig btn-sm"
+                        @click="shareBulkIG(item)"
+                        title="Kirim / Salin Pesan Instagram">
+                        IG
+                      </button>
+                      <a :href="item.fbLink" target="_blank" class="btn btn-fb btn-sm" title="Bagikan ke Facebook">
+                        FB ↗
+                      </a>
+                      <a :href="item.waLink" target="_blank" class="btn btn-wa btn-sm" title="Kirim Langsung ke WA">
                         WA ↗
                       </a>
                     </div>
@@ -1029,9 +1407,32 @@
         };
 
         const currentTab = ref('single');
+        const previewPlatform = ref('wa');
 
         // Base URL otomatis mendeteksi path lokal/domain saat ini
         const baseUrl = ref('');
+
+        const isLocalUrl = computed(() => {
+          const u = (baseUrl.value || '').toLowerCase().trim();
+          return u.includes('localhost') || u.includes('127.0.0.1') || u.startsWith('file:') || (!u.startsWith('http://') && !u.startsWith('https://'));
+        });
+
+        const setGitHubPagesUrl = () => {
+          baseUrl.value = 'https://mg3248193-ship-it.github.io/undangan-digital-vue/';
+          localStorage.setItem('wedding_base_url', baseUrl.value);
+          showToast('✓ Domain GitHub Pages diterapkan!');
+        };
+
+        const setCustomDomain = () => {
+          const custom = prompt('Masukkan alamat domain website online Anda:\nContoh: https://undangan-kita.com/', baseUrl.value);
+          if (custom && custom.trim()) {
+            let clean = custom.trim();
+            if (!clean.endsWith('/')) clean += '/';
+            baseUrl.value = clean;
+            localStorage.setItem('wedding_base_url', baseUrl.value);
+            showToast('✓ Domain berhasil disimpan!');
+          }
+        };
 
         const guest = ref({
           name: 'Bpk. Ir. Budi Santoso & Keluarga',
@@ -1111,7 +1512,7 @@
           return makeGuestUrl(guest.value.name);
         });
 
-        // Builder template pesan WhatsApp
+        // Builder template pesan WhatsApp (Menggunakan format bintang tebal *text*)
         const buildMessage = (name, salutation, style, url) => {
           const targetName = name ? name.trim() : 'Bapak/Ibu/Saudara/i';
           const targetSalutation = salutation || 'Bapak/Ibu/Saudara/i';
@@ -1177,8 +1578,82 @@ Hormat kami,
 *Gunawan & Vista*`;
         };
 
+        // Builder template pesan Instagram & Facebook (Teks bersih TANPA tanda bintang *, link di baris terpisah agar 100% aktif di IG DM)
+        const buildSocialMessage = (name, salutation, style, url) => {
+          const targetName = name ? name.trim() : 'Bapak/Ibu/Saudara/i';
+          const targetSalutation = salutation || 'Bapak/Ibu/Saudara/i';
+
+          if (style === 'islami') {
+            return `Assalamu’alaikum Warahmatullahi Wabarakatuh
+
+Kepada Yth.
+${targetName}
+
+Dengan memohon rahmat dan ridho Allah SWT, perkenankan kami menyampaikan kabar bahagia pernikahan kami:
+
+Muhammad Gunawan & Vista Agustiningsih
+Minggu, 1 November 2026
+
+Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila ${targetSalutation} berkenan hadir untuk memberikan doa restu.
+
+Detail rangkaian acara, lokasi (Google Maps), dan konfirmasi kehadiran dapat dibuka melalui link berikut:
+
+${url}
+
+Mohon maaf perihal undangan hanya kami sampaikan melalui pesan digital ini. Atas perhatian dan doanya kami ucapkan terima kasih.
+
+Wassalamu’alaikum Warahmatullahi Wabarakatuh
+Gunawan & Vista`;
+          }
+
+          if (style === 'casual') {
+            return `Halo ${targetName}! 👋
+
+Kabar bahagia untuk kita semua! Kami mengundang kamu untuk hadir di hari pernikahan kami:
+
+The Wedding of Gunawan & Vista
+Minggu, 1 November 2026
+
+Detail acara, denah lokasi, dan buku tamu bisa kamu buka langsung melalui link berikut:
+
+${url}
+
+Kehadiran dan doa restu kamu sangat berarti untuk kami. Sampai jumpa di hari bahagia kami ya! ✨
+
+Salam hangat,
+Gunawan & Vista`;
+          }
+
+          // Formal default
+          return `Kepada Yth.
+${targetName}
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang ${targetSalutation} untuk menghadiri hari bahagia pernikahan kami:
+
+Muhammad Gunawan & Vista Agustiningsih
+Minggu, 1 November 2026
+
+Untuk detail rangkaian acara dan petunjuk Google Maps, silakan buka tautan undangan digital kami di bawah ini:
+
+${url}
+
+Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir dan memberikan doa restu. Terima kasih banyak atas perhatian dan doanya.
+
+Hormat kami,
+Gunawan & Vista`;
+        };
+
         const generatedMessage = computed(() => {
           return buildMessage(
+            guest.value.name,
+            guest.value.salutation,
+            guest.value.templateStyle,
+            generatedUrl.value
+          );
+        });
+
+        const generatedSocialMessage = computed(() => {
+          return buildSocialMessage(
             guest.value.name,
             guest.value.salutation,
             guest.value.templateStyle,
@@ -1194,10 +1669,54 @@ Hormat kami,
           if (phone) {
             waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
           } else {
-            // Jika tidak isi nomor, buka wa.me share text langsung
             waUrl = `https://api.whatsapp.com/send?text=${text}`;
           }
           window.open(waUrl, '_blank');
+        };
+
+        // Kirim ke Instagram
+        const sendInstagram = () => {
+          const msg = generatedSocialMessage.value;
+          copyText(msg, '✓ Pesan & Link Instagram berhasil disalin!');
+          if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            navigator.share({
+              title: 'Undangan Pernikahan Gunawan & Vista',
+              text: msg,
+              url: generatedUrl.value
+            }).catch(() => {
+              window.open('https://www.instagram.com/direct/inbox/', '_blank');
+            });
+          } else {
+            setTimeout(() => {
+              window.open('https://www.instagram.com/direct/inbox/', '_blank');
+            }, 400);
+          }
+        };
+
+        // Bagikan ke Facebook
+        const sendFacebook = () => {
+          const url = encodeURIComponent(generatedUrl.value);
+          const quote = encodeURIComponent(generatedSocialMessage.value);
+          const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`;
+          window.open(fbUrl, '_blank', 'width=620,height=550');
+        };
+
+        // Bagikan Universal (Native Web Share)
+        const sendNativeShare = () => {
+          if (navigator.share) {
+            navigator.share({
+              title: 'Undangan Pernikahan Gunawan & Vista',
+              text: generatedSocialMessage.value,
+              url: generatedUrl.value
+            }).catch(() => {});
+          } else {
+            copyText(generatedSocialMessage.value, '✓ Pesan & link undangan disalin ke clipboard!');
+          }
+        };
+
+        // Salin Link Bersih khusus IG DM
+        const copyCleanLink = () => {
+          copyText(generatedUrl.value, '✓ Link bersih berhasil disalin! Kirim di DM Instagram agar muncul kartu preview otomatis.');
         };
 
         const loadSampleGuest = () => {
@@ -1229,8 +1748,10 @@ Hormat kami,
           bulkList.value = lines.map(name => {
             const url = makeGuestUrl(name);
             const message = buildMessage(name, bulkSalutation.value, bulkStyle.value, url);
+            const socialMessage = buildSocialMessage(name, bulkSalutation.value, bulkStyle.value, url);
             const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-            return { name, url, message, waLink };
+            const fbLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(socialMessage)}`;
+            return { name, url, message, socialMessage, waLink, fbLink };
           });
 
           if (bulkList.value.length > 0) {
@@ -1238,9 +1759,32 @@ Hormat kami,
           }
         };
 
+        const shareBulkIG = (item) => {
+          copyText(item.socialMessage, '✓ Pesan IG untuk ' + item.name + ' disalin! Membuka Instagram DM...');
+          if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            navigator.share({
+              title: 'Undangan Pernikahan Gunawan & Vista',
+              text: item.socialMessage,
+              url: item.url
+            }).catch(() => {
+              window.open('https://www.instagram.com/direct/inbox/', '_blank');
+            });
+          } else {
+            setTimeout(() => {
+              window.open('https://www.instagram.com/direct/inbox/', '_blank');
+            }, 400);
+          }
+        };
+
         watch([bulkNamesText, bulkSalutation, bulkStyle], () => {
           if (bulkNamesText.value.trim()) {
             generateBulkList();
+          }
+        });
+
+        watch(baseUrl, (newVal) => {
+          if (newVal) {
+            localStorage.setItem('wedding_base_url', newVal);
           }
         });
 
@@ -1270,7 +1814,10 @@ Hormat kami,
 
         onMounted(() => {
           checkAuth();
-          if (window.location.protocol === 'file:') {
+          const savedBase = localStorage.getItem('wedding_base_url');
+          if (savedBase) {
+            baseUrl.value = savedBase;
+          } else if (window.location.protocol === 'file:') {
             const cleanHref = window.location.href.replace(/generator\.html.*$/i, '');
             baseUrl.value = cleanHref;
           } else {
@@ -1288,11 +1835,21 @@ Hormat kami,
           handleUnlock,
           handleLock,
           currentTab,
+          previewPlatform,
           baseUrl,
+          isLocalUrl,
+          setGitHubPagesUrl,
+          setCustomDomain,
           guest,
           generatedUrl,
           generatedMessage,
+          generatedSocialMessage,
           sendWhatsApp,
+          sendInstagram,
+          sendFacebook,
+          sendNativeShare,
+          copyCleanLink,
+          shareBulkIG,
           copyText,
           loadSampleGuest,
           bulkNamesText,
