@@ -1500,7 +1500,7 @@
         // Buat URL personalisasi
         const makeGuestUrl = (name) => {
           let root = (baseUrl.value || '').trim();
-          root = root.replace(/generator\.html.*$/i, '');
+          root = root.replace(/\/?generator(\.html)?.*$/i, '');
           if (root && !root.endsWith('/')) {
             root += '/';
           }
@@ -1818,11 +1818,11 @@ Gunawan & Vista`;
           if (savedBase) {
             baseUrl.value = savedBase;
           } else if (window.location.protocol === 'file:') {
-            const cleanHref = window.location.href.replace(/generator\.html.*$/i, '');
-            baseUrl.value = cleanHref;
+            const cleanHref = window.location.href.replace(/\/?generator(\.html)?.*$/i, '');
+            baseUrl.value = cleanHref.endsWith('/') ? cleanHref : cleanHref + '/';
           } else {
             const origin = window.location.origin;
-            const path = window.location.pathname.replace(/\/generator\.html.*$/i, '').replace(/\/+$/, '');
+            const path = window.location.pathname.replace(/\/generator(\.html)?.*$/i, '').replace(/\/+$/, '');
             baseUrl.value = `${origin}${path}/`;
           }
         });
