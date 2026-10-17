@@ -9,7 +9,7 @@ import {
   RsvpSection, 
   DigitalGift, 
   FooterSection 
-} from './components.js?v=3.0';
+} from './components.js?v=3.2';
 import { initPetals } from './petals.js?v=3.0';
 
 const { createApp, ref, onMounted } = window.Vue;
@@ -58,7 +58,10 @@ const App = {
       return 'Tamu Undangan';
     };
 
-    const isOpen = ref(false);
+    const isOpen = ref(
+      window.location.search.includes('open=true') || 
+      window.location.search.includes('open=1')
+    );
     const guestName = ref(getGuestNameFromUrl());
     const isPlaying = ref(false);
     const toast = ref({

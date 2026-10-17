@@ -87,7 +87,7 @@ export const CoverModal = {
         </div>
 
         <div class="cover-photo-frame">
-          <img src="assets/images/Gunavista-2.png" alt="Vista & Gunawan" />
+          <img src="assets/images/Gunavista-7.jpeg" alt="Vista & Gunawan" />
         </div>
 
         <div class="cover-guest-box">
@@ -191,7 +191,7 @@ export const HeroSection = {
   template: `
     <section class="hero-section">
       <span class="section-tag">Walimatul 'Urs</span>
-      <h1 class="section-title gold-gradient-text">The Wedding Celebration</h1>
+      <h1 style="font-size: 1.5rem; font-weight: 600; color: var(--primary-gold); letter-spacing: 2px; margin-bottom: 24px;">The Wedding Celebration</h1>
       
       <div class="hero-arch-container">
         <div class="hero-arch-glow"></div>
@@ -203,6 +203,7 @@ export const HeroSection = {
       <h2 class="font-script" style="font-size: 3rem; color: var(--sage-deep); margin-bottom: 6px;">
         Vista &amp; Gunawan
       </h2>
+      
       <p style="font-size: 0.95rem; font-weight: 600; color: var(--primary-gold); letter-spacing: 2px;">
         MINGGU, 1 NOVEMBER 2026
       </p>
@@ -270,13 +271,13 @@ export const CoupleSection = {
 
       <div class="couple-card">
         <div class="couple-avatar">
-          <img src="assets/images/Gunavista-4.png" alt="Muhammad Gunawan" />
+          <img src="assets/images/Gunavista-4.jpeg" alt="Muhammad Gunawan" />
         </div>
         <h3 class="couple-name">Muhammad Gunawan</h3>
         <p class="couple-desc">
           Putra Terakhir dari pasangan<br>
-          <strong>Bpk. H. Komarudin</strong> &amp;<br>
-          <strong>Ibu Hj. Jaenab</strong>
+          <strong>Bpk. (Alm) H. Komarudin</strong> &amp;<br>
+          <strong>Ibu (Alm) Hj. Jaenab</strong>
         </p>
         <a href="https://www.instagram.com/awannnn53/" target="_blank" rel="noopener noreferrer" class="couple-social">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -319,62 +320,79 @@ export const EventSchedule = {
   },
   template: `
     <section class="section event-section">
-      <span class="section-tag">Waktu &amp; Tempat</span>
-      <h2 class="section-title">Rangkaian Acara</h2>
-      <div class="ornament-divider">✦</div>
-      <p class="section-subtitle">
-        Insya Allah rangkaian acara pernikahan kami akan diselenggarakan pada:
-      </p>
+    <span class="section-tag">Waktu &amp; Tempat</span>
+    <h2 class="section-title">Rangkaian Acara</h2>
+    <div class="ornament-divider">✦</div>
+    <p class="section-subtitle">
+      Insya Allah rangkaian acara pernikahan kami akan diselenggarakan pada:
+    </p>
 
-      <div class="event-card">
-        <div class="event-icon-badge">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 6v6l4 2"></path>
-          </svg>
-        </div>
-        <h3 class="event-name">Akad Nikah &amp; Resepsi</h3>
-        
-        <div class="event-time-box">
-          <span class="event-date-text">Minggu, 1 November 2026</span>
-          <span class="event-clock-text">Pukul 08:00 - 18:00 WIB</span>
-        </div>
-
-        <p class="event-venue-name">Citeureup</p>
-        <p class="event-venue-address">
-          Jl. Mayor Oking, Citeureup, Bogor, Jawa Barat
-        </p>
-
-        <!-- Barcode / QR Code Google Maps -->
-        <div style="display: flex; flex-direction: column; align-items: center; margin: 16px 0;">
-          <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 8px; font-weight: 500;">
-            Scan Barcode untuk Navigasi Google Maps:
-          </p>
-          <div style="padding: 10px; background: #ffffff; border-radius: 12px; border: 1.5px dashed #d4af37; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: inline-flex;">
-            <img 
-              :src="'https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=1e293b&bgcolor=ffffff&data=' + encodeURIComponent(mapsUrl)" 
-              alt="QR Code Google Maps" 
-              width="150" 
-              height="150"
-              style="display: block; border-radius: 4px;"
-            />
-          </div>
-        </div>
-
-        <a 
-          :href="mapsUrl" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="btn-maps"
-        >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Petunjuk Arah (Maps)</span>
-        </a>
+    <!-- Sesi 1: Akad Nikah & Resepsi -->
+    <div class="event-card">
+      <div class="event-icon-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
       </div>
-    </section>
+
+      <!-- BUNGKUSAN BARU AGAR TERSUSUN KE BAWAH -->
+      <div style="display: flex; flex-direction: column; gap: 24px; width: 100%; margin-bottom: 24px;">
+        
+        <div class="event-time-box" style="width: 100%; margin: 0;">
+           <h3 class="event-name">Akad Nikah</h3>
+            <span class="event-clock-text">Minggu, 01 NOVEMBER 2026</span>
+           <span class="event-clock-text">Pukul 09:00 </span>
+        </div>
+
+        <div class="event-time-box" style="width: 100%; margin: 0;">
+           <h3 class="event-name">Resepsi</h3>
+            <span class="event-clock-text">Minggu, 01 NOVEMBER 2026</span>
+          <span class="event-clock-text">Pukul 11:00 - 18:00 WIB</span>
+        </div>
+
+      </div>
+      <!-- AKHIR BUNGKUSAN BARU -->
+
+      <p class="event-venue-name">Lokasi Acara</p>
+      <p class="event-venue-address">Kp. Lio Baru RT 09/09 Kel. Karang Asem Barat Kec. Citeureup - Kab. Bogor</p>
+
+      <!-- Area Barcode QR Code Google Maps -->
+      <div class="qr-section">
+        <p class="qr-instruction">Scan QR Code untuk Navigasi Google Maps:</p>
+        <div class="qr-code-container">
+          <img 
+            :src="'https://api.qrserver.com/v1/create-qr-code/?size=180x180&color=1e293b&bgcolor=ffffff&data=' + encodeURIComponent(mapsUrl)" 
+            alt="QR Code Google Maps" 
+            width="150" 
+            height="150"
+            class="qr-code-img"
+          />
+        </div>
+      </div>
+
+
+
+        <!-- Tombol Link Langsung -->
+
+        <a
+        :href="mapsUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-maps"
+        >
+
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+
+        <span>Petunjuk Arah (Maps)</span>
+
+        </a>
+
+        </div>
+        </section>
   `
 };
 
@@ -508,26 +526,7 @@ export const RsvpSection = {
       }
     },
     getDefaultWishes() {
-      return [
-        {
-          name: 'Dimas Aditya',
-          status: 'hadir',
-          message: 'Barakallahu lakum wa baraka alaikum! Selamat menempuh hidup baru Gunawan & Vista, semoga senantiasa sakinah mawaddah warahmah.',
-          date: '1 jam yang lalu'
-        },
-        {
-          name: 'Siti Sarah & Keluarga',
-          status: 'hadir',
-          message: 'Selamat berbahagia Gunawan dan Vista! Lancar-lancar sampai hari H ya, insya Allah kami sekeluarga hadir.',
-          date: '3 jam yang lalu'
-        },
-        {
-          name: 'Budi Kurniawan',
-          status: 'ragu',
-          message: 'Selamat Gunawan & Vista! Masih diusahakan jadwal cutinya, semoga bisa hadir merayakan momen bahagia ini.',
-          date: '5 jam yang lalu'
-        }
-      ];
+      return [];
     },
     statusLabel(status) {
       if (status === 'hadir') return 'Hadir';
@@ -796,12 +795,12 @@ export const DigitalGift = {
         <p style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 12px; line-height: 1.5;">
           Penerima: Vista Agustiningsih / Muhammad Gunawan<br>
           Kp Lio Baru RT 09/09 no 64 kelurahan karang asem barat kec citeureup<br>
-          (Telp: 0812-3456-7890)
+          (Telp: 0877-9012-0004)
         </p>
         <button 
           id="btn-copy-address" 
           class="btn-copy-account" 
-          @click="copyToClipboard('Kp Lio Baru RT 09/09 no 64 kelurahan karang asem barat kec citeureup (Penerima: Vista/Gunawan - 081234567890)', 'Alamat pengiriman kado')"
+          @click="copyToClipboard('Kp Lio Baru RT 09/09 no 64 kelurahan karang asem barat kec citeureup (Penerima: Vista/Gunawan - 087790120004)', 'Alamat pengiriman kado')"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -827,7 +826,7 @@ export const FooterSection = {
 
       <div class="footer-families">
         Kami yang berbahagia,<br>
-        <strong>Keluarga Besar Bpk. H. Komarudin &amp; Ibu Hj. Jaenab Jaenabun</strong><br>
+        <strong>Keluarga Besar Bpk. (alm) H. Komarudin &amp; Ibu (alm) Hj. Jaenab Jaenabun</strong><br>
         <strong>Keluarga Besar Bpk. Agus  &amp;  Ibu Sri Wulan</strong>
       </div>
 

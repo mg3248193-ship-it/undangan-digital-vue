@@ -1,7 +1,7 @@
 <template>
   <section class="hero-section">
     <span class="section-tag">Walimatul 'Urs</span>
-    <h1 class="section-title gold-gradient-text">The Wedding Celebration</h1>
+    <h1 style="font-size: 1.5rem; font-weight: 600; color: var(--primary-gold); letter-spacing: 2px; margin-bottom: 24px;; margin-bottom: 24px;">The Wedding Celebration</h1>
     
     <!-- Arch Photo Frame -->
     <div class="hero-arch-container">
@@ -14,7 +14,8 @@
     <h2 class="font-script" style="font-size: 3rem; color: var(--sage-deep); margin-bottom: 6px;">
       Gunawan &amp; Vista
     </h2>
-    <p style="font-size: 0.95rem; font-weight: 600; color: var(--primary-gold); letter-spacing: 2px;">
+   
+   <p style="font-size: 0.95rem; font-weight: 600; color: var(--primary-gold); letter-spacing: 2px;">
       MINGGU, 1 NOVEMBER 2026
     </p>
 

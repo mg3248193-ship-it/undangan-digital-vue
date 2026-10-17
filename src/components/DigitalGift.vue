@@ -96,12 +96,12 @@
       <p style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 12px; line-height: 1.5;">
         Penerima: Vista Agustiningsih / Muhammad Gunawan<br>
         Kp Lio Baru RT 09/09 no 64 kelurahan karang asem barat kec citeureup<br>
-        (Telp: 0812-3456-7890)
+        (Telp: 0877-9012-0004)
       </p>
       <button 
         id="btn-copy-address" 
         class="btn-copy-account" 
-        @click="copyToClipboard('Kp Lio Baru RT 09/09 no 64 kelurahan karang asem barat kec citeureup (Penerima: Vista/Gunawan - 081234567890)', 'Alamat pengiriman kado')"
+        @click="copyToClipboard('Kp Lio Baru RT 09/09 no 64 kelurahan karang asem barat kec citeureup (Penerima: Vista/Gunawan - 087790120004)', 'Alamat pengiriman kado')"
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>

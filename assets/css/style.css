@@ -707,10 +707,51 @@ body {
 }
 
 .event-venue-address {
-  font-size: 0.85rem;
+  font-size: clamp(0.52rem, 2.2vw, 0.76rem);
+  letter-spacing: -0.35px;
   color: var(--text-muted);
   line-height: 1.5;
   margin-bottom: 20px;
+  white-space: nowrap;
+  text-align: center;
+  max-width: 100%;
+}
+
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 18px 0 16px 0;
+}
+
+.qr-instruction {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.qr-code-container,
+.qr-canvas-container {
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1.5px dashed #d4af37;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.qr-code-container img,
+.qr-canvas-container img,
+.qr-canvas-container canvas,
+.qr-code-img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 6px;
 }
 
 .btn-maps {
@@ -1162,4 +1203,14 @@ body {
 .toast-notification.is-visible {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .event-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .event-card {
+    padding: 26px 14px;
+  }
 }

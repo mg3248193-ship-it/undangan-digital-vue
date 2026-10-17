@@ -10,13 +10,13 @@
     <!-- Mempelai Pria -->
     <div class="couple-card">
       <div class="couple-avatar">
-        <img src="assets/images/Gunavista-4.png" alt="Muhammad Gunawan" />
+        <img src="assets/images/Gunavista-4.jpeg" alt="Muhammad Gunawan" />
       </div>
       <h3 class="couple-name">Muhammad Gunawan</h3>
       <p class="couple-desc">
         Putra Ke Terakhir dari pasangan<br>
-        <strong>Bpk. H. Komarudin</strong> &amp;<br>
-        <strong>Ibu Hj. Jaenab</strong>
+        <strong>Bpk. (Alm) H. Komarudin</strong> &amp;<br>
+        <strong>Ibu (Alm) Hj. Jaenab</strong>
       </p>
       <a href="https://www.instagram.com/awannnn53/" target="_blank" rel="noopener noreferrer" class="couple-social">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">

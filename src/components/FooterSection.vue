@@ -9,7 +9,7 @@
 
     <div class="footer-families">
       Kami yang berbahagia,<br>
-      <strong>Keluarga Besar Bpk. H. Komarudin &amp; Ibu Hj. Jaenab Jaenabun</strong><br>
+      <strong>Keluarga Besar Bpk. (alm) H. Komarudin &amp; Ibu (alm)Hj. Jaenab Jaenabun</strong><br>
       <strong>Keluarga Besar Bpk. Agus  &amp; Ibu Sri Wulan</strong>
     </div>
 
