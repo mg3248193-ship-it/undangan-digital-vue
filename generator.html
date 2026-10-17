@@ -1515,7 +1515,7 @@
             root += '/';
           }
           const cleanName = encodeURIComponent((name || 'Tamu Undangan').trim());
-          return `${root}index.html?to=${cleanName}`;
+          return `${root}?to=${cleanName}`;
         };
 
         const generatedUrl = computed(() => {
@@ -1542,7 +1542,7 @@ Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila ${targetSalutation}
 
 Informasi lengkap mengenai jadwal acara, lokasi venue, serta konfirmasi kehadiran dapat diakses melalui tautan undangan digital berikut:
 
-🔗 ${url}
+${url}
 
 Mohon maaf perihal undangan hanya kami sampaikan melalui pesan digital ini. Atas doa restu dan perhatiannya, kami haturkan terima kasih.
 
@@ -1562,7 +1562,8 @@ Kabar bahagia untuk kita semua! Kami ingin mengundang kamu di hari pernikahan ka
 Pastinya bakal berkesan banget kalau kamu bisa hadir merayakan momen spesial ini bareng kami.
 
 Yuk cek detail acara, denah lokasi, dan buku tamu di link undangan berikut ya:
-🔗 ${url}
+
+${url}
 
 Sampai ketemu di hari bahagia kami! Terima kasih banyak atas doanya ya. ✨`;
           }
@@ -1580,7 +1581,8 @@ Tanpa mengurangi rasa hormat, perkenankan kami mengundang ${targetSalutation} un
 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu kepada kami.
 
 Detail rangkaian acara dan konfirmasi kehadiran dapat diakses melalui tautan berikut:
-🔗 ${url}
+
+${url}
 
 Mohon maaf apabila ada kesalahan dalam penulisan nama atau gelar. Terima kasih banyak atas perhatian dan doa restunya.
 
